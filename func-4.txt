@@ -1,0 +1,91 @@
+static void sort(int[] num, List<int> mus)
+{
+    int temp=0, n = num.Length;
+    if (n == 2 || n == 3)
+    {
+        Console.Write("до   ");
+        Console.WriteLine(String.Join(" ", num));
+        sort3element(num, temp);
+        
+    }
+    else if (n == 4)
+    {
+        Console.Write("до   ");
+        Console.WriteLine(String.Join(" ", num));
+        sort4element(num, temp);
+    }
+    else if (n == 5)
+    {
+        Console.Write("до   ");
+        Console.WriteLine(String.Join(" ", num));
+        if (num[4] < num[0])
+        {
+            temp = num[4];
+            num[4] = num[0];
+            num[0] = temp;
+        }
+        if (num[3] < num[1])
+        {
+            temp = num[3];
+            num[3] = num[1];
+            num[1] = temp;
+        }
+        if (num[1] < num[0])
+        {
+            temp = num[1];
+            num[1] = num[0];
+            num[0] = temp;
+            temp = num[4];
+            num[4] = num[3];
+            num[3] = temp;
+        }
+        if (num[2] < num[1])
+        {
+            temp = num[2];
+            num[2] = num[1];
+            if (temp < num[0])
+            {
+                num[1] = num[0];
+                num[0] = temp;
+            }
+            else num[1] = temp;
+        }
+        else if (num[3] < num[2])
+        {
+            temp = num[2];
+            num[2] = num[3];
+            num[3] = temp;
+        }
+        if (num[4] < num[2])
+        {
+            temp = num[4];
+            num[4] = num[3];
+            num[3] = num[2];
+            if (temp < num[1])
+            {
+                num[2] = num[1];
+                num[1] = temp;
+            }
+            else num[2] = temp;
+        }
+        else if (num[4] < num[3])
+        {
+            temp = num[4];
+            num[4] = num[3];
+            num[3] = temp;
+        }
+        Console.Write("после    ");
+        Console.WriteLine(String.Join(" ", num));
+    }
+    else
+    {
+        Console.Write("до   ");
+        Console.WriteLine(String.Join(" ", num));
+        Console.Write("символ один, сортировка не требуется");
+    }
+    foreach (int i in num)
+    {
+        mus.Add(i);
+    }
+
+}
