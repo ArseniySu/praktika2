@@ -1,0 +1,40 @@
+static void grup(int[] num, List<int> mus1)
+{
+    int n = 5, j = 0, g = 0;
+    int[] nums = new int[n];
+    int b = num.Length / 5;
+    for (int i = 0; i < num.Length; i++)
+    {
+        if (g != b)
+        {
+            while (j < nums.Length)
+            {
+                nums[j] = num[i];
+                j++;
+                i++;
+            }
+            if (i % 5 == 0 && i != 0)
+            {
+                sort(nums, mus1);
+                j = 0;
+                i = i - 1;
+                g++;
+            }
+        }
+        else
+        {
+            n = num.Length % 5;
+            nums = new int[n];
+            while (j < nums.Length)
+            {
+                nums[j] = num[i];
+                j++;
+                i++;
+            }
+            sort(nums, mus1);
+            j = 0;
+            i = i - 1;
+        }
+    }
+
+}
