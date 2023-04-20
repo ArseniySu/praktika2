@@ -1,0 +1,63 @@
+static void sort4element(int[] num, int temp)
+{
+    int[] num1 = new int[3];
+    int j = 0;
+    for (int i = 0; i < num.Length - 1; i++)
+        {
+
+            while (j < num1.Length)
+            {
+                num1[j] = num[i];
+                j++;
+                i++;
+            }
+        }
+        for (int i = 0; i < num1.Length - 1; i++)
+        {
+            for (j = i + 1; j < num1.Length; j++)
+            {
+                if (num1[i] > num1[j])
+                {
+                    temp = num1[i];
+                    num1[i] = num1[j];
+                    num1[j] = temp;
+                }
+            }
+        }
+
+        for (int i = 0; i < num.Length - 1; i++)
+        {
+            num[i] = num1[i];
+        }
+
+        if (num[1] > num[3])
+        {
+            if (num[3] < num[0])
+            {
+                temp = num[0];
+                num[0] = num[3];
+                num[3] = num[2];
+                num[2] = num[1];
+                num[1] = temp;
+            }
+            else
+            {
+                temp = num[1];
+                num[1] = num[3];
+                num[3] = num[2];
+                num[2] = temp;
+            }
+
+        }
+        else
+        {
+            if (num[3] < num[2])
+            {
+                temp = num[2];
+                num[2] = num[3];
+                num[3] = temp;
+            }
+        }
+        Console.Write("после    ");
+        Console.WriteLine(String.Join(" ", num));
+}
