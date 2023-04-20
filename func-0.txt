@@ -1,0 +1,47 @@
+List<int> mussort = new List<int>();
+bool boole = true;
+int n = 0;
+Console.Write("введите длину массва:  ");
+while (boole == true)
+{
+    try
+    {
+        n = Convert.ToInt32(Console.ReadLine());
+        boole = false;
+    }
+    catch
+    {
+        Console.WriteLine("ошибка, введите число");
+        boole = true;
+    }
+
+}
+
+int[] nums = new int[n];
+Console.WriteLine("введите элементы массива");
+for (int i = 0; i < n; i++)
+{
+    try
+    {
+        if (i != n - 1)
+            nums[i] = Convert.ToInt32(Console.ReadLine());
+        else
+        {
+            Console.WriteLine("введите последний элемент массива: ");
+            nums[i] = Convert.ToInt32(Console.ReadLine());
+        }
+    }
+    catch
+    {
+        Console.WriteLine("введен неверный символ, введите число!");
+        i = i - 1;
+    }
+
+}
+Console.WriteLine("массив до сортировки");
+Console.WriteLine(String.Join(" ", nums));
+Console.WriteLine("\nдля проверки <<<");
+grup(nums, mussort);
+Console.WriteLine(">>> \n");
+Console.WriteLine("массив после сортировки");
+Console.WriteLine(String.Join(" ", mussort));
